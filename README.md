@@ -10,7 +10,7 @@ This addon requires a modified mod-transmog version which can be found in this f
 
 When requirements above are setup, just download the addon into the Interface/Addons folder.
 
-Turning off bag item overlay can be turned off and some other things can be setup by using the `/tc`.
+Bag item icon overlay can be turned off and some other things can be setup by using the `/tc`.
 
 ## Screenshots
 
