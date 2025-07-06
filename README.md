@@ -11,9 +11,11 @@ This addon requires a modified mod-transmog version which can be found in this f
 ### Tooltip
 
 Before item equipped:
+
 ![01](https://github.com/user-attachments/assets/4f904fed-72ba-4f50-9bdc-45a1de8820a4)
 
 After item equipped:
+
 ![02](https://github.com/user-attachments/assets/011c168b-b1a2-4808-87a3-38e51774fba2)
 
 ### Bag items
