@@ -6,6 +6,12 @@ Addon WoW 3.3.5a connected to AzerothCore to show mod-transmog appearance collec
 
 This addon requires a modified mod-transmog version which can be found in this fork: https://github.com/abracadaniel22/mod-transmog . The modified version exposes a command that the addon uses to query the status of items. Follow the installation steps on the link.
 
+## Setup
+
+When requirements above are setup, just download the addon into the Interface/Addons folder.
+
+Turning off bag item overlay can be turned off and some other things can be setup by using the `/tc`.
+
 ## Screenshots
 
 ### Tooltip
