@@ -1,0 +1,14 @@
+## Interface: 30300
+## Title: Transmog Collection
+## Notes: Shows AzerothCore's mod-transmog appearance collection status on item tooltips and bags
+## Author: Abracadaniel22
+## Version: 1.0
+## SavedVariables: TransmogCollectionDB
+## OptionalDeps: ArkInventory
+## X-Website: https://github.com/abracadaniel22/transmog-collection
+
+TransmogCollection.lua
+TransmogCollectionAPI.lua
+TransmogCollectionTooltips.lua
+TransmogCollectionItemOverlay.lua
+TransmogCollectionItemOverlayArkInventory.lua
