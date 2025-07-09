@@ -16,11 +16,11 @@ Bag item icon overlay can be turned off and some other things can be setup by us
 
 ### Tooltip
 
-Before item equipped:
+Before appearance collected:
 
 ![01](https://github.com/user-attachments/assets/4f904fed-72ba-4f50-9bdc-45a1de8820a4)
 
-After item equipped:
+After appearance collected:
 
 ![02](https://github.com/user-attachments/assets/011c168b-b1a2-4808-87a3-38e51774fba2)
 
