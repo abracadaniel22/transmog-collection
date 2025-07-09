@@ -24,7 +24,7 @@ After appearance collected:
 
 ![02](https://github.com/user-attachments/assets/011c168b-b1a2-4808-87a3-38e51774fba2)
 
-### Bag items
+### Bag items (this can be turned off)
 
 Shows icon over transmogrifiable items indicating whether the appearances have been collected or not:
 
