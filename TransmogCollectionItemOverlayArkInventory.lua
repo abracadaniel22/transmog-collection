@@ -148,13 +148,14 @@ function ArkInventoryModule.Initialize()
         return
     end
     
+    -- when arkinventory frames show or when items move around them after opened
     ArkInventoryModule.HookArkInventoryItemUpdate()
     ArkInventoryModule.HookAllArkInventoryFrames()
     
     local frame = CreateFrame("Frame")
-    frame:RegisterEvent("BAG_UPDATE")
-    frame:RegisterEvent("UNIT_INVENTORY_CHANGED")
-    frame:RegisterEvent("PLAYER_LOGIN")
+    frame:RegisterEvent("BAG_UPDATE")                   -- moving between bag slots, equiping, unequiping, bank deposit/withdrawal
+    frame:RegisterEvent("UNIT_INVENTORY_CHANGED")       -- when equip/unequip. May fire when BAG_UPDATE doesn't, for example, switching from the same slot.
+    frame:RegisterEvent("PLAYER_LOGIN")                 -- once and before player_entering_world
     frame:SetScript("OnEvent", function(self, event, arg)
         if event == "PLAYER_LOGIN" then
             -- Wait for ArkInventory to fully load
