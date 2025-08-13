@@ -71,8 +71,9 @@ function API.PrintAddonMessage(text)
 end
 
 -- TODO add support for querying multiple items at once and make addon batch queries if they happen less than .2s apart
+-- TODO it doesn't seem like forceServerCheck is being set to true at all anywhere in the code
 function API.QueryAppearanceCollection(itemId, forceServerCheck)
-    if not forceServerCheck and TransmogCollectionDB.cache[itemId] ~= nil then
+    if not forceServerCheck == true and TransmogCollectionDB.cache[itemId] ~= nil then
         return TransmogCollectionDB.cache[itemId]
     end
     if pendingQueries[itemId] then
@@ -81,6 +82,14 @@ function API.QueryAppearanceCollection(itemId, forceServerCheck)
     
     pendingQueries[itemId] = true
     SendChatMessage(".transmog has " .. itemId, "GUILD")
+end
+
+-- from https://github.com/Gethe/wow-ui-source/blob/classic_era/Interface/AddOns/Blizzard_SharedXML/LinkUtil.lua
+function GetItemInfoFromHyperlink(link)
+	local strippedItemLink, itemID = link:match("|Hitem:((%d+).-)|h");
+	if itemID then
+		return tonumber(itemID), strippedItemLink;
+	end
 end
 
 function API.HandleChatMessage(message)
@@ -99,6 +108,18 @@ function API.HandleChatMessage(message)
             end
         end
         return hideServerMessage
+    end
+
+    if message:find("has been added to your appearance collection") then
+        local itemId, _ = GetItemInfoFromHyperlink(message)
+        if itemId then
+            itemId = tonumber(itemId)
+            TransmogCollectionDB.cache[itemId] = true
+            if API.OnCacheUpdated then
+                API.OnCacheUpdated(itemId, status)
+            end
+        end
+        return false
     end
     
     return false -- Message not handled by us. Don't hide it.

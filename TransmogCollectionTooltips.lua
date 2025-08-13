@@ -50,19 +50,6 @@ function HookTooltip(tooltip)
     end)
 end
 
-function ForceRefreshEquippedItems()
-    for slot = 1, 19 do
-        -- skip rings and trinkets
-        if not (slot >= 11 and slot <= 14) then
-            local itemId = GetInventoryItemID("player", slot)
-            if itemId then
-                API.QueryAppearanceCollection(itemId, true)
-            end
-        end
-    end
-    return equippedItems
-end
-
 function TooltipsModule.Initialize()
     HookTooltip(GameTooltip)
     HookTooltip(ItemRefTooltip)
@@ -70,17 +57,6 @@ function TooltipsModule.Initialize()
     if ShoppingTooltip2 then HookTooltip(ShoppingTooltip2) end
 
     local frame = CreateFrame("Frame")
-    -- When something is equipped, we must force check (ignore cache) the equipped item, since the transmog status for it may have changed
-    -- We have no way of knowing which item was equipped so we must force check all equipped items
-    -- There are further unnecessary from this, since the event is fired when a new item is placed in the player's containers and it takes up a new slot
-    -- If the new item(s) are placed onto an existing stack or when two stacks already in the containers are merged, the event is not raised
-    -- Since we can't unlearn an item, perhaps we can skip the server refresh if the item is already learned
-    frame:RegisterEvent("UNIT_INVENTORY_CHANGED")
-    frame:SetScript("OnEvent", function(self, event, arg)
-        if event =="UNIT_INVENTORY_CHANGED" and arg == "player" then
-            ForceRefreshEquippedItems()
-        end
-    end)
 end
 
 addon.TooltipsModule = TooltipsModule

@@ -148,7 +148,6 @@ function ItemOverlayModule.Initialize()
     frame:RegisterEvent("BAG_UPDATE")                   -- moving between bag slots, equiping, unequiping, bank deposit/withdrawal
     frame:RegisterEvent("PLAYERBANKSLOTS_CHANGED")      -- change in main bank inventory. Will fire multiple per changed slot (e.g.: moved item from slot 1 to 2)
     frame:RegisterEvent("BANKFRAME_OPENED")             -- when opening bank
-    frame:RegisterEvent("UNIT_INVENTORY_CHANGED")       -- when equip/unequip. May fire when BAG_UPDATE doesn't, for example, switching from the same slot.
     
     local function HookContainerWhenCreated(containerName)
         local container = _G[containerName]
@@ -175,11 +174,6 @@ function ItemOverlayModule.Initialize()
                     UpdateSingleBagContainer(arg, containerName)
                     break
                 end
-            end
-        elseif event =="UNIT_INVENTORY_CHANGED" then
-            for containerName, bagId in pairs(containerToBagMap) do
-                -- In this event, cache is ignored for it may fire when item is equipped
-                UpdateSingleBagContainer(bagId, containerName, true)
             end
         elseif event =="BANKFRAME_OPENED" or event=="PLAYERBANKSLOTS_CHANGED" then
             UpdateBankItemSlots()
