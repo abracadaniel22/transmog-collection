@@ -1,6 +1,6 @@
 # Transmog Collection
 
-Addon WoW 3.3.5a connected to AzerothCore to show mod-transmog appearance collection status on tooltips and bags. Compatible with ArkInventory.
+Addon for AzerothCore WoW 3.3.5a to show mod-transmog appearance collection status on tooltips and bags. Compatible with ArkInventory.
 
 ## Requirements
 
@@ -8,9 +8,9 @@ This addon requires a modified mod-transmog version which can be found in this f
 
 ## Setup
 
-When requirements above are setup, just download the addon into the Interface/Addons folder.
+After installing the module on the server, just download the addon into the Interface/Addons folder of the client.
 
-Bag item icon overlay can be turned off and some other things can be setup by using the `/tc`.
+The bag item icon overlay can be turned off and some other things can be setup by using the `/tc` command.
 
 ## Screenshots
 
